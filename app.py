@@ -6,7 +6,10 @@ app.config["TESTING"] = True
 @app.route('/')
 def index():
     return render_template('index.html')
-    # return("Hello World!")
+
+@app.route('/game')
+def game():
+    return render_template('game.html')
 
 @app.route('/chooseGame')
 def chooseGame():
