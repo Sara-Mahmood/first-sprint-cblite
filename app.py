@@ -23,6 +23,7 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 db = firebase.database()
 
+
 @app.route("/")
 def login():
     return render_template("login.html")
@@ -104,7 +105,10 @@ def register():
 
 @app.route('/chooseGame')
 def chooseGame():
-    return render_template('chooseGame.html')
+    if person["is_logged_in"] == True:
+        return render_template("chooseGame.html", name = person["name"])
+    else:
+        return redirect(url_for('login'))
 
 
 # @app.route('/Game')
