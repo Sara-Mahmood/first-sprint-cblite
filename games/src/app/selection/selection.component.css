@@ -1,0 +1,17 @@
+#main-display {
+    margin-left: 60px;
+    color: white;
+    padding: 20px;
+}
+#page-title {
+    padding-top: 10px;
+    font-family: Google Sans;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+}
+
+app-gamecard{
+    margin: 20px;
+    float: left;
+}
