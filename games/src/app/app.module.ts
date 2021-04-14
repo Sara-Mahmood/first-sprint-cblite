@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SelectionComponent } from './selection/selection.component';
 import { GamecardComponent } from './gamecard/gamecard.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SelectionComponent,
-    GamecardComponent
+    GamecardComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
