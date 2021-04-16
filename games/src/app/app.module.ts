@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SelectionComponent } from './selection/selection.component';
 import { GamecardComponent } from './gamecard/gamecard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     SelectionComponent,
     GamecardComponent,
     LoginPageComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,
