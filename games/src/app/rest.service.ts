@@ -9,9 +9,17 @@ export class RestService {
 
   constructor(private http: HttpClient) { } 
 
-  gameUrl:string = 'http://localhost:4200';
-  
+  statUrl:string = 'http://localhost:4200/login';
+  sendloginUrl:string = 'http://localhost:4200/login';
+  sendRegUrl:string = 'http://localhost:4200/register';
+
   readLogStatus() {
-    return this.http.get<LogStatus>(this.gameUrl);
+    return this.http.get<LogStatus>(this.statUrl);
+  }
+  sendLoginData(email:string, password:string) {
+    return this.http.post(this.sendloginUrl, {email:email, password:password});
+  }
+  sendRegData(username:string,email:string, password:string) {
+    return this.http.post(this.sendloginUrl, {email:email, password:password});
   }
 }

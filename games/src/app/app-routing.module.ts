@@ -6,7 +6,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SelectionComponent } from './selection/selection.component';
 
 const routes: Routes = [{path:'', component: LoginPageComponent},
-                        {path:'selection', component: SelectionComponent}];
+                        {path:'selection', component: SelectionComponent},
+                        {path:'admin', component:AdminPanelComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -11,6 +11,8 @@ import { GamecardComponent } from './gamecard/gamecard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RestService } from './rest.service';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { RegisterationComponent } from './registeration/registeration.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
     GamecardComponent,
     LoginPageComponent,
     AdminPanelComponent,
+    RegisterationComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

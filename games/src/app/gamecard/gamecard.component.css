@@ -7,8 +7,6 @@
 
 .card {
     margin-top: 20px;
-}
-.card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,6 +16,8 @@
     background-clip: border-box;
     border: 0 solid transparent;
     border-radius: 0;
+    width: 18rem;
+    height: 24rem;
 }
 .card .card-title {
     position: relative;
