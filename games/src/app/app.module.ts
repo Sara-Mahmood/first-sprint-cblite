@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SelectionComponent } from './selection/selection.component';
 import { GamecardComponent } from './gamecard/gamecard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { RestService } from './rest.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NavbarComponent,
     SelectionComponent,
     GamecardComponent,
-    LoginPageComponent
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
