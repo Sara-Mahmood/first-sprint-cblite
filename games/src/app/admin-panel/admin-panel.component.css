@@ -1,0 +1,18 @@
+.card-stats .card-body {
+    padding: 1rem 1.5rem;
+}
+.card-title{
+    font-size: large;
+}
+
+.h2{
+    font-size: xx-large;
+}
+.icon-shape {
+    padding: 12px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}

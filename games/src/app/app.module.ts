@@ -10,6 +10,7 @@ import { SelectionComponent } from './selection/selection.component';
 import { GamecardComponent } from './gamecard/gamecard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RestService } from './rest.service';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RestService } from './rest.service';
     SelectionComponent,
     GamecardComponent,
     LoginPageComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,37 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
 .card {
-    height: 200px;
-    width: 200px;
-    background: rgb(214, 213, 213);
-    border: 1px solid black;
+    margin-top: 20px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0;
+}
+.card .card-title {
+    position: relative;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .class-color {
@@ -11,6 +40,20 @@
     border: 1px solid black;
     border-radius: 100px;
     margin:auto;
+}
+
+.btn-default, .btn-default:hover, .btn-outline-primary:hover, .btn-outline-primary:hover:hover, .btn-outline-warning:hover, .btn-outline-warning:hover:hover, .btn-primary, .btn-primary:hover, .btn-warning, .btn-warning:hover {
+    color: #fff;
+}
+.btn-primary {
+    color: #fff;
+    background-color:black;
+    border-color: rgb(231, 230, 230);
+}
+
+.h4{
+    font-size: 1.125rem;
+    font-weight: bold;
 }
 
 .game-name {
