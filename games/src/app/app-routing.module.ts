@@ -5,7 +5,7 @@ import { GamecardComponent } from './gamecard/gamecard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SelectionComponent } from './selection/selection.component';
 
-const routes: Routes = [{path:'', component: AdminPanelComponent},
+const routes: Routes = [{path:'', component: LoginPageComponent},
                         {path:'selection', component: SelectionComponent}];
 
 @NgModule({
