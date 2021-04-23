@@ -1,9 +1,9 @@
 <form [formGroup]="loginFormModel" (submit)="onLoginSubmit()">
     <div class="form-group required">
-      <input class="form-control" *ngIf="loginFormModel.get('Email') && loginFormModel.get('Email').valid && (loginFormModel.get('Email').dirty || loginFormModel.get('Email').touched)" formControlName="Email" placeholder="Email">
+      <input class="form-control" formControlName="Email" placeholder="Email">
     </div>
     <div class="form-group required">
-      <input type="password" class="form-control" *ngIf="loginFormModel.get('Password') && loginFormModel.get('Password').valid && (loginFormModel.get('Password').dirty || loginFormModel.get('Password').touched)" formControlName="Password" placeholder="Password">
+      <input type="password" class="form-control" formControlName="Password" placeholder="Password">
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">

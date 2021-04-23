@@ -9,8 +9,8 @@ export class RestService {
 
   constructor(private http: HttpClient) { } 
 
-  statUrl:string = 'http://localhost:4200/login';
-  sendloginUrl:string = 'http://localhost:4200/login';
+  statUrl:string = 'http://localhost:4200/result';
+  sendloginUrl:string = 'http://localhost:4200/result';
   sendRegUrl:string = 'http://localhost:4200/register';
 
   readLogStatus() {
