@@ -111,9 +111,9 @@ def chooseGame():
         return redirect(url_for('login'))
 
 
-# @app.route('/Game')
+# @app.route('/game')
 # def scoreScreen():
-#     return render_template('Game.html')
+#     return render_template('game.html')
 
 @app.route('/scoreScreen')
 def scoreScreen():
