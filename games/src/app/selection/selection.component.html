@@ -1,0 +1,13 @@
+<div id="page-content-wrapper">
+    <div class="container fluid">
+        <h1 id="page-title" class="mt-4">
+            <span style="color: rgb(88, 103, 121);">Games </span >
+        </h1>
+    </div>
+    <div id="main-display" class="container-fluid">
+        <app-gamecard id="class-card"
+            *ngFor="let game of games;"
+            [game]="game">
+        </app-gamecard>
+    </div>
+</div>
