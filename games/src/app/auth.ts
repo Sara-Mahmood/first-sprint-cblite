@@ -6,3 +6,13 @@ export class LogStatus
         this.status = status;
     }
 }
+
+export class LoginData {
+    Email:string;
+    Password:string;
+    constructor (email:string, password:string) {
+        this.Email = email;
+        this.Password = password;
+    }
+
+}

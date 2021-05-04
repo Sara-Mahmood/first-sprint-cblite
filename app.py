@@ -1,4 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
+from flask_cors import CORS
 import firebase_admin
 import pyrebase
 import json
@@ -7,6 +8,7 @@ from firebase_admin import credentials, auth
 
 app = Flask(__name__)
 app.config["TESTING"] = True
+CORS(app)
 
 config = {
     "apiKey": "AIzaSyBG22gTgUR61Ek_7CigmTQNGGcASGQEQSI",
@@ -24,26 +26,36 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-@app.route("/")
-def login():
-    return render_template("login.html")
+# @app.route("/")
+# def login():
+    # return render_template("login.html")
 
 #Sign up/ Register
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
+# @app.route("/signup")
+# def signup():
+    # return render_template("signup.html")
 
 
 #If someone clicks on login, they are redirected to /result
-@app.route("/result", methods = ["POST", "GET"])
-def result():
+# @app.route("/api/login", methods=["GET"])
+# def logStatus():
+#     print("here")
+#     status = True
+#     return {"status":status}
+
+@app.route("/api/login", methods = ["POST", "GET"])
+def login():
     if request.method == "POST":        #Only if data has been posted
         result = request.form           #Get the data
+        # print(result)
         email = result["email"]
-        password = result["pass"]
+        password = result["password"]
         try:
             #Try signing in the user with the given information
             user = auth.sign_in_with_email_and_password(email, password)
+            print(user)
+            if not user.registered:
+                print('here')
             #Insert the user data in the global person
             global person
             person["is_logged_in"] = True
@@ -53,15 +65,14 @@ def result():
             data = db.child("users").get()
             person["name"] = data.val()[person["uid"]]["name"]
             #Redirect to chooseGame page
-            return redirect(url_for('chooseGame'))
+            return {'status':True}
         except:
             #If there is any error, redirect back to login
-            return redirect(url_for('login'))
-    else:
+            return {'status':False}
         if person["is_logged_in"] == True:
-            return redirect(url_for('chooseGame'))
+            return {'status':True}
         else:
-            return redirect(url_for('login'))
+            return {'status':False}
 
 #If someone clicks on register, they are redirected to /register
 @app.route("/register", methods = ["POST", "GET"])

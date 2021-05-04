@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { LogStatus, LoginData } from '../auth';
+
 
 @Component({
   selector: 'app-login-form',
@@ -20,24 +22,37 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLoginSubmit() {
-    // this.rs.sendLoginData(this.loginFormModel.get('Email').value, this.loginFormModel.get('Password').value)
-    // .subscribe();
-
-    this.rs.readLogStatus()
-    .subscribe
-    (
-      (response) => 
-      {
-        if (response.status == true){
+  onLoginSubmit(formData: LoginData) {
+    this.rs.sendLoginData(formData)
+    .subscribe((res) => {
+      console.log(res);
+        if (res.status === true){
           this._router.navigate(['selection']);
         }
+        else {
+          this._router.navigate(['/']);
+        }
       },
-      (error)=>
-      {
-        console.log("Could Not Log In!")
+      (error) => {
+        console.log('Could not login')
+        console.log(error);
       }
     )
+
+    // this.rs.readLogStatus()
+    // .subscribe
+    // (
+    //   (response) => 
+    //   {
+    //     if (response.status == true){
+    //       this._router.navigate(['selection']);
+    //     }
+    //   },
+    //   (error)=>
+    //   {
+    //     console.log("Could Not Log In!")
+    //   }
+    // )
   }
 
 }
