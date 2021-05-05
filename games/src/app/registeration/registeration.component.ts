@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { RegisterData, LogStatus } from '../auth';
 
 @Component({
   selector: 'app-registeration',
@@ -25,9 +26,6 @@ export class RegisterationComponent implements OnInit {
     });
   }
 
-  
-
-
   ngOnInit(): void {
   }
 
@@ -42,8 +40,22 @@ export class RegisterationComponent implements OnInit {
         }
   }
 
-  onRegisterSubmit(){
-
+  onRegisterSubmit(formData: RegisterData){
+    this.rs.sendRegData(formData)
+    .subscribe((res:LogStatus) => {
+      console.log(res);
+        if (res.status === true){
+          this._router.navigate(['selection']);
+        }
+        else {
+          this._router.navigate(['signin']);
+        }
+      },
+      (error:LogStatus) => {
+        console.log('Could not login')
+        console.log(error);
+      }
+    )
   }
 
 }

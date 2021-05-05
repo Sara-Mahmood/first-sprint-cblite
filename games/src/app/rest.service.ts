@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LogStatus, LoginData } from './auth';
+import { LogStatus, LoginData, RegisterData } from './auth';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,15 @@ export class RestService {
 
     return this.http.post<LogStatus>(this.server + "login", formData);
   }
-  sendRegData(username:string,email:string, password:string) {
-    return this.http.post(this.server + "register", {email:email, password:password});
+  sendRegData(regObj: RegisterData) {
+    const {Username,Email, Password} = regObj;
+    const formData = new FormData();
+
+    formData.append("username", Username);
+    formData.append("email", Email);
+    formData.append("password", Password);
+    
+    return this.http.post<LogStatus>(this.server + "register", formData);
   }
 }
 
