@@ -5,8 +5,8 @@
             <app-login-form></app-login-form>
             <h3>OR</h3>
             <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" formControlName="Username" placeholder="Your Username *" value="" />
+                <div [formGroup]="userForm" class="form-group">
+                    <input type="text" class="form-control" formControlName="username" placeholder="Your Username *" value="" />
                 </div>
                 <p style='color: #fff;'>Note: No stats available</p>
                 <div class="form-group">

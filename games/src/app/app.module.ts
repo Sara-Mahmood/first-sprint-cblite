@@ -34,4 +34,5 @@ import { LoginFormComponent } from './login-form/login-form.component';
   providers: [RestService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

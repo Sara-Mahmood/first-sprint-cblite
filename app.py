@@ -43,7 +43,7 @@ db = firebase.database()
 #     status = True
 #     return {"status":status}
 
-@app.route("/api/login", methods = ["POST", "GET"])
+@app.route("/api/login", methods = ["POST"])
 def login():
     if request.method == "POST":        #Only if data has been posted
         result = request.form           #Get the data
@@ -53,17 +53,17 @@ def login():
         try:
             #Try signing in the user with the given information
             user = auth.sign_in_with_email_and_password(email, password)
-            print(user)
-            if not user.registered:
-                print('here')
             #Insert the user data in the global person
             global person
             person["is_logged_in"] = True
             person["email"] = user["email"]
             person["uid"] = user["localId"]
             #Get the name of the user
+            print("Name")
             data = db.child("users").get()
+            print("name =", data.val()[person["uid"]]["name"])
             person["name"] = data.val()[person["uid"]]["name"]
+            print(person["name"])
             #Redirect to chooseGame page
             return {'status':True}
         except:

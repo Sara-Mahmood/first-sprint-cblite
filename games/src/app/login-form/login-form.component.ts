@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { LogStatus, LoginData } from '../auth';
 
 
@@ -12,12 +12,17 @@ import { LogStatus, LoginData } from '../auth';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) { }
+  loginFormModel = new FormGroup ({ email: new FormControl(), password: new FormControl()});
 
-  loginFormModel = this.fb.group({
-    Email: ['', Validators.required],
-    Password: ['', Validators.required]
-  });
+
+  constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) {
+    this.loginFormModel = this.fb.group({
+      Email: ['', Validators.required],
+      Password: ['', Validators.required]
+    });
+  }
+
+  
 
   ngOnInit(): void {
   }
@@ -30,7 +35,7 @@ export class LoginFormComponent implements OnInit {
           this._router.navigate(['selection']);
         }
         else {
-          this._router.navigate(['/']);
+          this._router.navigate(['signin']);
         }
       },
       (error) => {
@@ -38,21 +43,6 @@ export class LoginFormComponent implements OnInit {
         console.log(error);
       }
     )
-
-    // this.rs.readLogStatus()
-    // .subscribe
-    // (
-    //   (response) => 
-    //   {
-    //     if (response.status == true){
-    //       this._router.navigate(['selection']);
-    //     }
-    //   },
-    //   (error)=>
-    //   {
-    //     console.log("Could Not Log In!")
-    //   }
-    // )
   }
 
 }

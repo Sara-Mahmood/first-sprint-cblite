@@ -1,16 +1,16 @@
 <form [formGroup]="loginFormModel" (ngSubmit)="onLoginSubmit(loginFormModel.value)">
-    <div class="form-group required">
+    <div  class="form-group required">
       <input class="form-control" formControlName="Email" placeholder="Email">
     </div>
     <div class="form-group required">
       <input type="password" class="form-control" formControlName="Password" placeholder="Password">
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-12">
+    <div  class="form-row">
+      <div  class="form-group col-md-12">
         <button type="submit" class="btnSubmit" style="float: left;">Sign In</button>
       </div>
     </div>
-    <div class="form-group">
+    <div   class="form-group">
         <a href="#" class="btnForgetPwd" style="color:rgb(132, 133, 134)">Forget Password?</a>
     </div>
   </form>

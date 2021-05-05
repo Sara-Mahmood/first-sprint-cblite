@@ -11,9 +11,6 @@ export class RestService {
 
   server:string = 'http://localhost:5000/api/';
 
-  readLogStatus() {
-    return this.http.get<LogStatus>(this.server + "login");
-  }
   sendLoginData(loginObj:LoginData) {
     const {Email, Password} = loginObj;
     const formData = new FormData();
