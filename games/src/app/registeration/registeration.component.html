@@ -1,4 +1,4 @@
-<form [formGroup]="registerFormModel" autocomplete="off" (NgSubmit)="onRegisterSubmit()">
+<form [formGroup]="registerFormModel" autocomplete="off" (NgSubmit)="onRegisterSubmit(registerFormModel.value)">
     <div class="form-group">
       <input class="form-control" formControlName="username" placeholder="Username">
     </div>
