@@ -29,7 +29,7 @@ export class LoginFormComponent implements OnInit {
 
   onLoginSubmit(formData: LoginData) {
     this.rs.sendLoginData(formData)
-    .subscribe((res) => {
+    .subscribe((res:LogStatus) => {
       console.log(res);
         if (res.status === true){
           this._router.navigate(['selection']);
@@ -38,7 +38,7 @@ export class LoginFormComponent implements OnInit {
           this._router.navigate(['signin']);
         }
       },
-      (error) => {
+      (error:LogStatus) => {
         console.log('Could not login')
         console.log(error);
       }

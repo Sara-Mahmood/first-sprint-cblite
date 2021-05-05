@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-registeration',
@@ -10,17 +10,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterationComponent implements OnInit {
 
-  constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) { }
+  registerFormModel = new FormGroup({username: new FormControl(),Email: new FormControl(),
+                                    Password: new FormControl(), ConfirmPassword: new FormControl()});
 
-  registerFormModel = this.fb.group({
-    username: ['',[Validators.required]],
-    Email: ['', [Validators.required, Validators.email]],
-    Passwords: this.fb.group({
-        Password: ['', [Validators.required, Validators.minLength(4)]],
-        ConfirmPassword: ['', Validators.required]
-    }, { validator: this.comparePasswords })
+  constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) { 
+    this.registerFormModel = this.fb.group({
+      username: ['', Validators.required],
+      Email: ['', Validators.required, Validators.email],
+      Passwords: this.fb.group({
+          Password: ['', Validators.required, Validators.minLength(4)],
+          ConfirmPassword: ['', Validators.required]
+      }, { validator: this.comparePasswords })
+  
+    });
+  }
 
-  });
+  
 
 
   ngOnInit(): void {

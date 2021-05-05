@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) {
     this.userForm = this.fb.group({username: ''});
-   }
+  }
   
 
   ngOnInit() {
