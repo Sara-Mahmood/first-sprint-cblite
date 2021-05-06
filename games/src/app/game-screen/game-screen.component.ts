@@ -10,7 +10,7 @@ import { switchMap, takeUntil, pairwise } from 'rxjs/operators'
   styleUrls: ['./game-screen.component.css']
 })
 export class GameScreenComponent implements AfterViewInit {
-  showMe = false;
+  showMe = true;
 
 
   @ViewChild('gameCanvas')
