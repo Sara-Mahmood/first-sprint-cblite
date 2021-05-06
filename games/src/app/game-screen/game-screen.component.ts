@@ -22,10 +22,7 @@ export class GameScreenComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.showMe = true;
-    
-    if (this.gameCanvas?.nativeElement.getContext('2d') != null){
-      this.context = this.gameCanvas?.nativeElement.getContext('2d');
-    }
+    this.context = this.gameCanvas?.nativeElement.getContext('2d');
     
   }
 
