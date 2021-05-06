@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-
-
-
+import {
+  Component, Input, ElementRef, AfterViewInit, ViewChild
+} from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { switchMap, takeUntil, pairwise } from 'rxjs/operators'
 
 @Component({
-  selector: 'app-game-screen',
+  selector: 'app-canvas',
   templateUrl: './game-screen.component.html',
   styleUrls: ['./game-screen.component.css']
 })
