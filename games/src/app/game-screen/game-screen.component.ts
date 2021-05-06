@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 
 
@@ -8,12 +8,25 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './game-screen.component.html',
   styleUrls: ['./game-screen.component.css']
 })
-export class GameScreenComponent implements OnInit {
+export class GameScreenComponent implements AfterViewInit {
+  showMe = false;
+
+
+  @ViewChild('gameCanvas')
+  gameCanvas?: ElementRef<HTMLCanvasElement>;
+
+  public context?: CanvasRenderingContext2D | null;
+
 
   constructor() { }
 
-  ngOnInit(): void {
-
+  ngAfterViewInit(): void {
+    this.showMe = true;
+    
+    if (this.gameCanvas?.nativeElement.getContext('2d') != null){
+      this.context = this.gameCanvas?.nativeElement.getContext('2d');
+    }
+    
   }
 
 }
