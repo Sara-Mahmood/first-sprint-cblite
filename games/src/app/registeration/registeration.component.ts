@@ -16,11 +16,11 @@ export class RegisterationComponent implements OnInit {
 
   constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) { 
     this.registerFormModel = this.fb.group({
-      username: ['', Validators.required],
-      Email: ['', Validators.required, Validators.email],
+      username: ['', [Validators.required]],
+      Email: ['', [Validators.required, Validators.email]],
       Passwords: this.fb.group({
-          Password: ['', Validators.required, Validators.minLength(4)],
-          ConfirmPassword: ['', Validators.required]
+          Password: ['', [Validators.required, Validators.minLength(4)]],
+          ConfirmPassword: ['', [Validators.required]]
       }, { validator: this.comparePasswords })
   
     });

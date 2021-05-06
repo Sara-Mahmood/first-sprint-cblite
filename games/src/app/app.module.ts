@@ -13,6 +13,7 @@ import { RestService } from './rest.service';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { GameScreenComponent } from './game-screen/game-screen.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     AdminPanelComponent,
     RegisterationComponent,
     LoginFormComponent,
+    GameScreenComponent,
   ],
   imports: [
     BrowserModule,
