@@ -13,6 +13,8 @@ import { LogStatus, LoginData } from '../auth';
 export class LoginFormComponent implements OnInit {
 
   loginFormModel = new FormGroup ({ email: new FormControl(), password: new FormControl()});
+  username:string = '';
+  logStat?:LogStatus;
 
 
   constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) {
@@ -30,8 +32,10 @@ export class LoginFormComponent implements OnInit {
   onLoginSubmit(formData: LoginData) {
     this.rs.sendLoginData(formData)
     .subscribe((res:LogStatus) => {
-      console.log(res);
+      this.logStat = res;
         if (res.status === true){
+          this.username = res.username;
+          console.log(this.username);
           this._router.navigate(['selection']);
         }
         else {
@@ -41,6 +45,7 @@ export class LoginFormComponent implements OnInit {
       (error:LogStatus) => {
         console.log('Could not login')
         console.log(error);
+        this._router.navigate(['signin']);
       }
     )
   }

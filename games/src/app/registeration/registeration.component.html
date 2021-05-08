@@ -1,32 +1,32 @@
-<form [formGroup]="registerFormModel" autocomplete="off" (NgSubmit)="onRegisterSubmit(registerFormModel.value)">
+<form [formGroup]="registerFormModel" autocomplete="off" (ngSubmit)="onRegisterSubmit(registerFormModel.value)">
     <div class="form-group">
       <input class="form-control" formControlName="username" placeholder="Username">
     </div>
     <div class="form-group">
       <input class="form-control" formControlName="Email" placeholder="Email">
-      <label class="text-danger" *ngIf="registerFormModel.get('Email')?.touched && registerFormModel.get('Email')?.errors?.required">
+      <label *ngIf="registerFormModel.get('Email')?.touched && registerFormModel.get('Email')?.errors?.required">
         This field is mandatory.
       </label>
-      <label class="text-danger" *ngIf="registerFormModel.get('Email')?.touched && registerFormModel.get('Email')?.errors?.email">
+      <label *ngIf="registerFormModel.get('Email')?.touched && registerFormModel.get('Email')?.errors?.email">
         Invalid email address.
       </label>
     </div>
     <div formGroupName="Passwords">
       <div class="form-group">
         <input type="password" class="form-control" formControlName="Password" placeholder="Password">
-        <label class="text-danger" *ngIf="registerFormModel.get('Passwords.Password')?.touched && registerFormModel.get('Passwords.Password')?.errors?.required">
+        <label *ngIf="registerFormModel.get('Passwords.Password')?.touched && registerFormModel.get('Passwords.Password')?.errors?.required">
           This field is mandatory.
         </label>
-        <label class="text-danger" *ngIf="registerFormModel.get('Passwords.Password')?.touched && registerFormModel.get('Passwords.Password')?.errors?.minlength">
+        <label *ngIf="registerFormModel.get('Passwords.Password')?.touched && registerFormModel.get('Passwords.Password')?.errors?.minlength">
           Minimum 4 characters required.
         </label>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm Password">
-        <label class="text-danger" *ngIf="registerFormModel.get('Passwords.ConfirmPassword')?.touched && registerFormModel.get('Passwords.ConfirmPassword')?.errors?.required">
+        <label *ngIf="registerFormModel.get('Passwords.ConfirmPassword')?.touched && registerFormModel.get('Passwords.ConfirmPassword')?.errors?.required">
           This field is mandatory.
         </label>
-        <label class="text-danger" *ngIf="registerFormModel.get('Passwords.ConfirmPassword')?.touched && registerFormModel.get('Passwords.ConfirmPassword')?.errors?.passwordMismatch">
+        <label *ngIf="registerFormModel.get('Passwords.ConfirmPassword')?.touched && registerFormModel.get('Passwords.ConfirmPassword')?.errors?.passwordMismatch">
           Confirm Password does not match.
         </label>
       </div>

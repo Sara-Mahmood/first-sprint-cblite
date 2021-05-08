@@ -14,6 +14,9 @@ export class RegisterationComponent implements OnInit {
   registerFormModel = new FormGroup({username: new FormControl(),Email: new FormControl(),
                                     Password: new FormControl(), ConfirmPassword: new FormControl()});
 
+  
+  logStat?:LogStatus;
+
   constructor(private rs:RestService, private _router:Router, private fb:FormBuilder) { 
     this.registerFormModel = this.fb.group({
       username: ['', [Validators.required]],
@@ -44,6 +47,7 @@ export class RegisterationComponent implements OnInit {
     this.rs.sendRegData(formData)
     .subscribe((res:LogStatus) => {
       console.log(res);
+      this.logStat = res;
         if (res.status === true){
           this._router.navigate(['selection']);
         }
@@ -52,8 +56,9 @@ export class RegisterationComponent implements OnInit {
         }
       },
       (error:LogStatus) => {
-        console.log('Could not login')
+        console.log('Unable to register')
         console.log(error);
+        this._router.navigate(['signin']);
       }
     )
   }

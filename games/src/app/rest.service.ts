@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LogStatus, LoginData, RegisterData } from './auth';
+import { LogStatus, LoginData, RegisterData, Stats } from './auth';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,12 @@ export class RestService {
     formData.append("password", Password);
     
     return this.http.post<LogStatus>(this.server + "register", formData);
+  }
+
+
+  getStats(userId:string) {
+    return this.http.post<Stats>(this.server + "getStats", userId);
+
   }
 }
 

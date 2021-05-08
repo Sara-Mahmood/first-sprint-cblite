@@ -4,9 +4,9 @@
             <h3>Login</h3>
             <app-login-form></app-login-form>
             <h3>OR</h3>
-            <form>
+            <form [formGroup]="userForm" (ngSubmit)='submitUsername(userForm.value)'>
                 <div [formGroup]="userForm" class="form-group">
-                    <input type="text" class="form-control" formControlName="username" placeholder="Your Username *" value="" />
+                    <input type="text" class="form-control" formControlName="username" placeholder="Your Username *" value=""/>
                 </div>
                 <p style='color: #fff;'>Note: No stats available</p>
                 <div class="form-group">
